@@ -19,13 +19,11 @@ public class RatingResource {
 		return new Rating(movieId, 4);
 	}
 	
-	@RequestMapping("user/{userId}")
+	@RequestMapping("users/{userId}")
 	public UserRating getUserRating(@PathVariable("userId") String userId) {
-		List<Rating> ratings =  Arrays.asList(
-				new Rating("1234", 4),
-				new Rating("5678", 3)
-			);
-		return new UserRating(ratings);
+		UserRating userRating = new UserRating();
+		userRating.initData(userId);
+		return userRating;
 	}
 
 }
